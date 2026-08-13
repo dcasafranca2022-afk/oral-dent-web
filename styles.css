@@ -7,7 +7,7 @@
 
 /* V2.9 - Hero visual aligned to approved family-care concept */
 .hero{height:625px;position:relative;overflow:hidden;background:#0b5368}
-.hero-bg{position:absolute;inset:0;background:url("hero-familia-v29.jpg") center center/cover no-repeat}
+.hero-bg{position:absolute;inset:0;"assets/ORAL_DENT_V3_4_Hero_Banner.png" center center/cover no-repeat}
 .hero-content{display:none}
 .hero-hotspot{position:absolute;display:block;z-index:5;text-decoration:none}
 .hotspot-appointment{left:36.5%;top:79%;width:12.5%;height:8.5%}
