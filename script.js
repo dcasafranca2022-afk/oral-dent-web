@@ -48,21 +48,57 @@ function requestAppointment(){
   const time=document.getElementById('appointmentTime').value;
   const service=document.getElementById('appointmentService').value;
   const message=document.getElementById('patientMessage').value.trim();
-  if(!selectedDate||!time||!name||!phone){status.className='appointment-status error';status.textContent='Por favor selecciona fecha, horario, nombre y celular.';return;}
-  const request={id:Date.now(),date:formatDate(selectedDate),time,name,phone,service,message,status:'Pendiente'};
+
+  if(!selectedDate||!time||!name||!phone){
+    status.className='appointment-status error';
+    status.textContent='Por favor selecciona fecha, horario, nombre y celular.';
+    return;
+  }
+
+  const request={
+    id:Date.now(),
+    date:formatDate(selectedDate),
+    time,
+    name,
+    phone,
+    service,
+    message,
+    status:'Pendiente'
+  };
+
+  /*
+    WhatsApp de recepción de citas de Oral Dent.
+    El mensaje se construye con saltos de línea reales y encodeURIComponent()
+    para que llegue ordenado, incluso si contiene tildes, ñ o caracteres especiales.
+  */
   const whatsappNumber='51981760638';
-  const whatsappText =
-    `Hola, deseo solicitar una cita en Oral Dent.%0A%0A` +
-    `Nombre: ${encodeURIComponent(request.name)}%0A` +
-    `Celular: ${encodeURIComponent(request.phone)}%0A` +
-    `Fecha solicitada: ${encodeURIComponent(request.date)}%0A` +
-    `Horario preferido: ${encodeURIComponent(request.time)}%0A` +
-    `Servicio: ${encodeURIComponent(request.service)}%0A` +
-    `Mensaje: ${encodeURIComponent(request.message || 'Sin mensaje adicional')}%0A%0A` +
-    `Quedo atento(a) a la confirmación de disponibilidad.`;
-  const whatsappUrl=`https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+  const whatsappMessage =
+`🦷 ORAL DENT — SOLICITUD DE CITA
+
+👤 DATOS DEL PACIENTE
+Nombre: ${request.name}
+Celular / WhatsApp: ${request.phone}
+
+📅 DATOS DE LA CITA
+Fecha solicitada: ${request.date}
+Horario preferido: ${request.time}
+Motivo / servicio: ${request.service}
+
+📝 MENSAJE DEL PACIENTE
+${request.message || 'Sin mensaje adicional'}
+
+────────────────────
+Solicitud enviada desde la página web de Oral Dent.
+Quedo atento(a) a la confirmación de disponibilidad.`;
+
+  const whatsappUrl=`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
   status.className='appointment-status';
-  status.innerHTML=`Solicitud preparada para WhatsApp.<br>Se abrirá WhatsApp para enviarla al <strong>981 760 638</strong>.`;
+  status.innerHTML=
+    'Solicitud lista.<br>' +
+    'Se abrirá WhatsApp Web con la información de la cita <strong>ordenada y lista para enviar</strong>.';
+
   window.open(whatsappUrl,'_blank');
 }
 document.addEventListener('DOMContentLoaded',()=>{
@@ -71,3 +107,88 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('nextMonth')?.addEventListener('click',()=>{calendarDate.setMonth(calendarDate.getMonth()+1);renderCalendar();});
   document.getElementById('requestAppointment')?.addEventListener('click',requestAppointment);
 });
+
+/* V3.8.2 - Presentación: pista única con voz natural + música de fondo sincronizadas */
+let presentation = {state:'idle'};
+
+function updatePresentationButton(){
+  const btn = document.getElementById('presentationTrigger');
+  if(!btn) return;
+  if(presentation.state === 'playing'){
+    btn.textContent = '⏸ Presentación';
+    btn.classList.add('presentation-playing');
+    btn.setAttribute('aria-label','Pausar presentación del consultorio');
+  }else if(presentation.state === 'paused'){
+    btn.textContent = '▶ Presentación';
+    btn.classList.remove('presentation-playing');
+    btn.setAttribute('aria-label','Continuar presentación del consultorio');
+  }else{
+    btn.textContent = '▶ Presentación del consultorio';
+    btn.classList.remove('presentation-playing');
+    btn.setAttribute('aria-label','Reproducir presentación del consultorio');
+  }
+}
+
+function getPresentationAudio(){
+  return document.getElementById('presentationAudio');
+}
+
+function finishPresentation(){
+  const audio = getPresentationAudio();
+  if(audio){
+    audio.pause();
+    audio.currentTime = 0;
+  }
+  presentation.state = 'idle';
+  updatePresentationButton();
+}
+
+async function startPresentation(){
+  const audio = getPresentationAudio();
+  if(!audio) return;
+  audio.currentTime = 0;
+  presentation.state = 'playing';
+  updatePresentationButton();
+  try{
+    await audio.play();
+  }catch(err){
+    finishPresentation();
+  }
+}
+
+function pausePresentation(){
+  const audio = getPresentationAudio();
+  if(!audio) return;
+  if(presentation.state === 'playing'){
+    audio.pause();
+    presentation.state = 'paused';
+  }else if(presentation.state === 'paused'){
+    audio.play().catch(()=>{});
+    presentation.state = 'playing';
+  }
+  updatePresentationButton();
+}
+
+function togglePresentation(){
+  if(presentation.state === 'idle') startPresentation();
+  else pausePresentation();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const trigger = document.getElementById('presentationTrigger');
+  const nav = document.getElementById('presentationNav');
+  const audio = getPresentationAudio();
+
+  if(audio){
+    audio.addEventListener('ended', finishPresentation);
+    audio.addEventListener('error', finishPresentation);
+  }
+
+  trigger?.addEventListener('click', togglePresentation);
+  nav?.addEventListener('click',(e)=>{
+    e.preventDefault();
+    document.getElementById('inicio')?.scrollIntoView({behavior:'smooth'});
+  });
+  updatePresentationButton();
+});
+

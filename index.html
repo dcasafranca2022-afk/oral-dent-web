@@ -10,7 +10,7 @@
 <body>
 <div class="topline">
   <div class="wrap topinner">
-    <span>Cuadra 9 de Av. Alameda Sur, Chorrillos</span>  
+    <span>Cuadra 9 de Av. Alameda Sur, Chorrillos</span>
     <span>Atención odontológica para toda la familia</span>
   </div>
 </div>
@@ -22,10 +22,12 @@
       <span><b>ORAL DENT</b><small>Consultorio Odontológico</small></span>
     </a>
     <nav>
+      <a href="#inicio" id="presentationNav">Presentación</a>
       <a href="#nosotros">Nosotros</a>
-      <a href="#doctor">El doctor</a>
+      <a href="#doctor">Especialista</a>
       <a href="#perfil-profesional">Perfil profesional</a>
       <a href="#tratamientos">Tratamientos</a>
+      <a href="#seguimiento">Seguimiento</a>
       <a href="#citas">Citas</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -37,6 +39,7 @@
 <main id="inicio">
 <section class="hero" aria-label="Presentación de Oral Dent">
   <div class="hero-bg"></div>
+  <button class="presentation-trigger" id="presentationTrigger" type="button" aria-label="Reproducir o pausar presentación del consultorio">▶ Presentación del consultorio</button>
   <a class="hero-hotspot hotspot-appointment" href="#contacto" aria-label="Agenda tu cita"></a>
   <a class="hero-hotspot hotspot-treatments" href="#tratamientos" aria-label="Ver tratamientos"></a>
   <a class="hero-hotspot hotspot-whatsapp" href="https://wa.me/51988778332" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"></a>
@@ -151,66 +154,63 @@
   </div>
 </section>
 
-<section class="process">
+<section class="process" id="seguimiento">
   <div class="wrap">
-
     <div class="section-head center">
       <span class="kicker">NUESTRA FORMA DE ATENDERTE</span>
       <h2>Del primer contacto al tratamiento</h2>
+      <p>Un proceso clínico claro y personalizado para cuidar tu salud bucal en cada etapa del tratamiento.</p>
     </div>
 
     <div class="steps">
-
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
-          <b style="font-size:28px;color:#08aebe;">01</b>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <circle cx="24" cy="24" r="22" stroke="#08aebe" stroke-width="2"/>
-            <path d="M15 24h18M24 15v18" stroke="#08aebe" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <article class="step-card">
+        <img src="assets/seguimiento-01-cuentanos.jpg" alt="Paciente conversando con el especialista durante la evaluación inicial">
+        <div class="step-body">
+          <div class="step-top"><b>01</b><span class="step-icon">●</span></div>
+          <h3>Cuéntanos</h3>
+          <h4>Evaluación inicial y diagnóstico</h4>
+          <p>Realizamos una entrevista clínica para conocer tus necesidades, antecedentes médicos y hábitos. Evaluamos tu salud bucal mediante un examen completo y, cuando sea necesario, estudios complementarios para orientar un diagnóstico preciso.</p>
+          <div class="step-note">Nuestro objetivo: identificar la causa del problema y prevenir complicaciones futuras.</div>
         </div>
-        <h3>Cuéntanos</h3>
-        <p>Explícanos qué necesitas.</p>
-      </div>
+      </article>
 
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
-          <b style="font-size:28px;color:#08aebe;">02</b>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <circle cx="24" cy="24" r="22" stroke="#08aebe" stroke-width="2"/>
-            <circle cx="21" cy="21" r="7" stroke="#08aebe" stroke-width="2"/>
-            <path d="M26 26l7 7" stroke="#08aebe" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <article class="step-card">
+        <img src="assets/seguimiento-02-evaluamos.jpg" alt="Especialista explicando resultados y alternativas de tratamiento dental">
+        <div class="step-body">
+          <div class="step-top"><b>02</b><span class="step-icon">⌕</span></div>
+          <h3>Evaluamos</h3>
+          <h4>Análisis y alternativas de tratamiento</h4>
+          <p>Analizamos los hallazgos clínicos y los resultados disponibles para explicarte tu situación bucal y las alternativas de tratamiento. Conversamos contigo sobre beneficios, tiempos, cuidados y prioridades para que puedas decidir con información clara.</p>
+          <div class="step-note">Transparencia y confianza en cada recomendación profesional.</div>
         </div>
-        <h3>Evaluamos</h3>
-        <p>Conoce tu situación y alternativas.</p>
-      </div>
+      </article>
 
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
-          <b style="font-size:28px;color:#08aebe;">03</b>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <circle cx="24" cy="24" r="22" stroke="#08aebe" stroke-width="2"/>
-            <path d="M16 25l5 5 11-12" stroke="#08aebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <article class="step-card">
+        <img src="assets/seguimiento-03-planificamos.jpg" alt="Especialista realizando un procedimiento dental como parte del plan de tratamiento">
+        <div class="step-body">
+          <div class="step-top"><b>03</b><span class="step-icon">✓</span></div>
+          <h3>Planificamos</h3>
+          <h4>Plan de tratamiento personalizado</h4>
+          <p>Diseñamos un plan de atención a tu medida, detallando los procedimientos indicados, número estimado de sesiones y cuidados necesarios. Coordinamos contigo las citas y resolvemos tus dudas antes de comenzar.</p>
+          <div class="step-note">Cuidado personalizado para alcanzar resultados seguros y duraderos.</div>
         </div>
-        <h3>Planificamos</h3>
-        <p>Definimos contigo el siguiente paso.</p>
-      </div>
+      </article>
 
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
-          <b style="font-size:28px;color:#08aebe;">04</b>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <circle cx="24" cy="24" r="22" stroke="#08aebe" stroke-width="2"/>
-            <path d="M15 25c3-5 6-5 9 0s6 5 9 0" stroke="#08aebe" stroke-width="2" stroke-linecap="round"/>
-            <path d="M18 19c2-2 4-2 6 0M24 19c2-2 4-2 6 0" stroke="#08aebe" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <article class="step-card">
+        <img src="assets/seguimiento-04-acompanamos.jpg" alt="Especialista revisando la evolución de una paciente durante el seguimiento">
+        <div class="step-body">
+          <div class="step-top"><b>04</b><span class="step-icon">♡</span></div>
+          <h3>Te acompañamos</h3>
+          <h4>Seguimiento y mantenimiento</h4>
+          <p>Monitoreamos tu evolución y realizamos controles periódicos para comprobar el avance del tratamiento. También te brindamos recomendaciones de higiene, prevención y mantenimiento para conservar una buena salud oral.</p>
+          <div class="step-note">Tu bienestar a largo plazo es nuestra prioridad.</div>
         </div>
-        <h3>Te acompañamos</h3>
-        <p>Seguimos tu evolución.</p>
-      </div>
+      </article>
+    </div>
 
+    <div class="process-footer">
+      <span>✓</span>
+      <p>En Oral Dent, combinamos experiencia, tecnología y calidez humana para brindarte una atención integral en cada etapa.</p>
     </div>
   </div>
 </section>
@@ -265,7 +265,7 @@
         <div class="appointment-status" id="appointmentStatus" aria-live="polite"></div>
       </div>
     </div>
-    <div class="appointment-demo-note"><strong>Versión de demostración:</strong> las solicitudes se guardan en este navegador. En la siguiente etapa conectaremos el calendario con un sistema real para que el doctor pueda revisar y confirmar las citas desde su laptop o celular.</div>
+    <div class="appointment-demo-note"><strong>Solicitud por WhatsApp:</strong> al completar el formulario, se abrirá WhatsApp con todos los datos de la cita ordenados y listos para enviar. El cliente deberá pulsar <strong>Enviar</strong> para confirmar la solicitud.</div>
   </div>
 </section>
 
@@ -336,6 +336,9 @@
     </div>
   </div>
 </section>
+
+<audio id="presentationAudio" src="assets/presentacion-oral-dent.mp3" preload="auto"></audio>
+
 </main>
 
 <footer>
