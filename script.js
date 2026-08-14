@@ -113,7 +113,7 @@ ${request.message || 'Sin mensaje adicional'}
 Solicitud enviada desde la página web de Oral Dent.
 Quedo atento(a) a la confirmación de disponibilidad.`;
 
-  const whatsappUrl=`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl=`https://wa.me/${request.phone}?text=${encodeURIComponent(whatsappMessage)}`;
 
   status.className='appointment-status';
   status.innerHTML=
