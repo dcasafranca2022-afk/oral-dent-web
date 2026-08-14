@@ -94,26 +94,29 @@ function requestAppointment(){
   */
   const whatsappNumber='51981760638';
 
+ 
   const whatsappMessage =
-`🦷 ORAL DENT — SOLICITUD DE CITA
+`\uD83E\uDDB7 ORAL DENT — SOLICITUD DE CITA
 
-👤 DATOS DEL PACIENTE
+\uD83D\uDC68\u200D\u2695\uFE0F Dr. Segundo Roberto Guadalupe Chirinos
+
+\uD83D\uDC64 DATOS DEL PACIENTE
 Nombre: ${request.name}
-Celular / WhatsApp: ${request.phone}
+\uD83D\uDCF1 WhatsApp: ${request.phone}
 
-📅 DATOS DE LA CITA
+\uD83D\uDCC5 DATOS DE LA CITA
 Fecha solicitada: ${request.date}
-Horario preferido: ${request.time}
-Motivo / servicio: ${request.service}
+\uD83D\uDD50 Horario preferido: ${request.time}
+\uD83E\uDDB7 Motivo / servicio: ${request.service}
 
-📝 DESCRIPCIÓN DEL SERVICIO
+\uD83D\uDCDD DESCRIPCIÓN DEL SERVICIO
 ${request.message || 'No se proporcionó una descripción'}
 
-────────────────────
+━━━━━━━━━━━━━━━━━━
 Solicitud enviada desde la página web de Oral Dent.
-Quedo atento(a) a la confirmación de disponibilidad.`;
+Quedo atento(a) a la confirmación de disponibilidad.
+`;
 
-  const whatsappUrl=`https://wa.me/${request.phone}?text=${encodeURIComponent(whatsappMessage)}`;
 
   status.className='appointment-status';
   status.innerHTML=
