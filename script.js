@@ -62,7 +62,7 @@ function selectDate(date){
   document.getElementById('selectedDate').textContent=formatDate(selectedDate);
   renderCalendar();
 }
-(){
+function requestAppointment(){
   const status=document.getElementById('appointmentStatus');
   const name=document.getElementById('patientName').value.trim();
   const phone=document.getElementById('patientPhone').value.trim();
