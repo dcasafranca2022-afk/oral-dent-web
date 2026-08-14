@@ -62,12 +62,13 @@ function selectDate(date){
   document.getElementById('selectedDate').textContent=formatDate(selectedDate);
   renderCalendar();
 }
-function requestAppointment(){
+(){
   const status=document.getElementById('appointmentStatus');
   const name=document.getElementById('patientName').value.trim();
   const phone=document.getElementById('patientPhone').value.trim();
   const time=document.getElementById('appointmentTime').value;
   const service=document.getElementById('appointmentService').value;
+  
   const message=document.getElementById('patientMessage').value.trim();
 
   if(!selectedDate||!time||!name||!phone){
@@ -117,11 +118,11 @@ Solicitud enviada desde la página web de Oral Dent.
 Quedo atento(a) a la confirmación de disponibilidad.
 `;
 
-
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   status.className='appointment-status';
   status.innerHTML=
     'Solicitud lista.<br>' +
-    'Se abrirá WhatsApp Web con la información de la cita <strong>ordenada y lista para enviar</strong>.';
+    'Se abrirá WhatsApp con la información de la cita <strong>ordenada y lista para enviar</strong>.';
 
   window.open(whatsappUrl,'_blank');
 }

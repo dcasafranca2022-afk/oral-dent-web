@@ -260,7 +260,9 @@
         <label>Horario preferido<select id="appointmentTime"><option value="">Selecciona un horario</option><option>09:00</option><option>10:00</option><option>11:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select></label>
         <label>Motivo de la consulta<select id="appointmentService"><option>Evaluación odontológica</option><option>Odontología general</option><option>Ortodoncia</option><option>Estética dental</option><option>Rehabilitación oral</option><option>Odontopediatría</option><option>Prevención / limpieza</option><option>Otro</option></select></label>
         <div class="form-two"><label>Nombre y apellido<input id="patientName" type="text" placeholder="Tu nombre"></label><label>Celular / WhatsApp<input id="patientPhone" type="tel" placeholder="999 999 999"></label></div>
-        <label>Mensaje adicional<textarea id="patientMessage" rows="3" placeholder="Cuéntanos brevemente qué necesitas"></textarea></label>
+        
+        <label>Descripción del servicio<textarea id="patientMessage" rows="4" placeholder="Describe brevemente qué necesitas o qué molestia tienes"></textarea></label>
+        
         <button class="btn btn-main appointment-submit" id="requestAppointment" type="button">Solicitar cita</button>
         <div class="appointment-status" id="appointmentStatus" aria-live="polite"></div>
       </div>
