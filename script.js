@@ -1,11 +1,26 @@
-
 function toggleMenu(){
     const nav = document.querySelector('header nav');
-    if(nav){
-        nav.classList.toggle('mobile-open');
-    }
+
+    if(!nav) return;
+
+    nav.classList.toggle('mobile-open');
 }
 
+document.addEventListener('DOMContentLoaded', function(){
+
+    const nav = document.querySelector('header nav');
+
+    if(!nav) return;
+
+    const links = nav.querySelectorAll('a');
+
+    links.forEach(function(link){
+        link.addEventListener('click', function(){
+            nav.classList.remove('mobile-open');
+        });
+    });
+
+});
 
 
 
