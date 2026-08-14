@@ -106,8 +106,8 @@ Fecha solicitada: ${request.date}
 Horario preferido: ${request.time}
 Motivo / servicio: ${request.service}
 
-📝 MENSAJE DEL PACIENTE
-${request.message || 'Sin mensaje adicional'}
+📝 DESCRIPCIÓN DEL SERVICIO
+${request.message || 'No se proporcionó una descripción'}
 
 ────────────────────
 Solicitud enviada desde la página web de Oral Dent.
