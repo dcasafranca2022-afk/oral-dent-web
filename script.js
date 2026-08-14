@@ -1,7 +1,13 @@
+
 function toggleMenu(){
-  const nav=document.querySelector('.nav nav');
-  if(nav) nav.classList.toggle('mobile-open');
+    const nav = document.querySelector('header nav');
+    if(nav){
+        nav.classList.toggle('mobile-open');
+    }
 }
+
+
+
 
 const monthNames=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 let calendarDate=new Date();
