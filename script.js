@@ -207,10 +207,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   trigger?.addEventListener('click', togglePresentation);
+  
   nav?.addEventListener('click',(e)=>{
-    e.preventDefault();
-    document.getElementById('inicio')?.scrollIntoView({behavior:'smooth'});
-  });
+  e.preventDefault();
+  togglePresentation();
+});
   
   updatePresentationButton();
 
