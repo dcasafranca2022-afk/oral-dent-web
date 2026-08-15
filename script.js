@@ -211,6 +211,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     e.preventDefault();
     document.getElementById('inicio')?.scrollIntoView({behavior:'smooth'});
   });
+  
+  updatePresentationButton();
+
+
   updatePresentationButton();
 });
 
