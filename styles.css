@@ -24,10 +24,13 @@
 .hero-bg{position:absolute;inset:0;background:url("assets/ORAL_DENT_V3_4_Hero_Banner.png") center center/cover no-repeat}
 .hero-content{display:none}
 .hero-hotspot{position:absolute;display:block;z-index:5;text-decoration:none}
-.hotspot-appointment{left:36.5%;top:79%;width:12.5%;height:8.5%}
+
+
 .hotspot-treatments{left:50%;top:79%;width:12.5%;height:8.5%}
 .hotspot-whatsapp{right:3.3%;top:85%;width:18%;height:10%}
-@media(max-width:850px){.hero{height:540px}.hotspot-appointment{left:35%;top:79%;width:15%;height:9%}.hotspot-treatments{left:51%;top:79%;width:15%;height:9%}.hotspot-whatsapp{right:2%;top:84%;width:25%;height:12%}}
+
+@media(max-width:850px){.hero{height:540px}.hotspot-treatments{left:51%;top:79%;width:15%;height:9%}.hotspot-whatsapp{right:2%;top:84%;width:25%;height:12%}}
+
 @media(max-width:560px){.hero{height:430px;background:#0b5368}.hero-bg{background-position:center center}.hero-hotspot{display:none}}
 
 /* V3.0 - Sistema de citas de demostración */
