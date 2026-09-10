@@ -219,3 +219,61 @@ document.addEventListener('DOMContentLoaded',()=>{
   updatePresentationButton();
 });
 
+/* V3.9 - Navegación por secciones independientes */
+document.addEventListener('DOMContentLoaded', () => {
+
+    const main = document.querySelector('main#inicio');
+    if (!main) return;
+
+    const sections = Array.from(main.querySelectorAll(':scope > section'));
+
+    function mostrarSeccion(id) {
+        const destino = document.getElementById(id);
+        if (!destino || !sections.includes(destino)) return;
+
+        sections.forEach(section => {
+            section.style.display = section === destino ? '' : 'none';
+        });
+
+        window.scrollTo(0, 0);
+    }
+
+    const enlaces = document.querySelectorAll('header nav a[href^="#"]');
+
+    enlaces.forEach(enlace => {
+        enlace.addEventListener('click', (e) => {
+
+            const destino = enlace.getAttribute('href');
+
+            if (!destino || destino === '#') return;
+
+            const id = destino.substring(1);
+
+            if (!document.getElementById(id)) return;
+
+            e.preventDefault();
+
+            mostrarSeccion(id);
+
+            if (id !== 'inicio') {
+                history.pushState(null, '', destino);
+            } else {
+                history.pushState(null, '', window.location.pathname);
+            }
+        });
+    });
+
+    window.addEventListener('popstate', () => {
+        const id = window.location.hash
+            ? window.location.hash.substring(1)
+            : 'inicio';
+
+        mostrarSeccion(id);
+    });
+
+    const seccionInicial = window.location.hash
+        ? window.location.hash.substring(1)
+        : 'inicio';
+
+    mostrarSeccion(seccionInicial);
+});
