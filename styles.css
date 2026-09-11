@@ -142,3 +142,22 @@
     border-top: 1px solid rgba(11, 83, 104, 0.10);
     box-shadow: inset 0 10px 20px rgba(11, 83, 104, 0.03);
 }
+
+/* V3.9 - Activar hotspots del Hero en celulares */
+@media(max-width:560px){
+    .hero-hotspot{
+        display:block;
+    }
+}
+
+
+/* V3.9 - Ajuste de hotspots del Hero en celulares */
+@media(max-width:560px){
+    .hotspot-appointment{
+        top:70%;
+    }
+
+    .hotspot-treatments{
+        top:70%;
+    }
+}
