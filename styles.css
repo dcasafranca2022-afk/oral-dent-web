@@ -27,6 +27,7 @@
 
 
 .hotspot-treatments{left:50%;top:79%;width:12.5%;height:8.5%}
+.hotspot-appointment{left:31%;top:79%;width:16.5%;height:8.5%}
 .hotspot-whatsapp{right:3.3%;top:85%;width:18%;height:10%}
 
 @media(max-width:850px){.hero{height:540px}.hotspot-treatments{left:51%;top:79%;width:15%;height:9%}.hotspot-whatsapp{right:2%;top:84%;width:25%;height:12%}}

@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function mostrarSeccion(id) {
         const destino = document.getElementById(id);
+
+        if (id === 'inicio') {
+            sections.forEach(section => {
+                section.style.display = section.classList.contains('hero') ? '' : 'none';
+            });
+
+            window.scrollTo(0, 0);
+            return;
+        }
+
         if (!destino || !sections.includes(destino)) return;
 
         sections.forEach(section => {
@@ -238,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
 
-    const enlaces = document.querySelectorAll('header nav a[href^="#"]');
+    const enlaces = document.querySelectorAll('header a[href^="#"], main a[href^="#"]');
 
     enlaces.forEach(enlace => {
         enlace.addEventListener('click', (e) => {
