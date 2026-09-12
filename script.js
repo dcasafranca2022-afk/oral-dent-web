@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
 
-    const enlaces = document.querySelectorAll('header a[href^="#"], main a[href^="#"]');
+    const enlaces = document.querySelectorAll('header a[href^="#"], main a[href^="#"], .float[href^="#"]');
 
     enlaces.forEach(enlace => {
         enlace.addEventListener('click', (e) => {
